@@ -5,7 +5,7 @@ clc
 
 
 T=X+273; %Replace "X" with the temperature in celcius
-r=[]; %radii of elements being modeled
+r=[]; %radii of elements being modeled (in angstroms)
 known(2,2:length(r))=NaN;
 known(1)=T;
 known(2,:)=r;
