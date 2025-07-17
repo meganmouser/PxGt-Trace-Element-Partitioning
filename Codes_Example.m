@@ -3,15 +3,16 @@
 clear all
 clc
 
+%Example lattice strain model for REE3+ in garnet X-site
 
-T=X+273; %Replace "X" with the temperature in celcius
-r=[]; %radii of elements being modeled (in angstroms)
+T=1175+273; %Replace "X" with the temperature in celcius
+r=[1.16 1.143 1.126 1.109 1.079 1.053 1.04 1.027 1.015 1.004 0.994 0.985 0.977]; %radii of elements being modeled (in angstroms)
 known(2,2:length(r))=NaN;
 known(1)=T;
 known(2,:)=r;
 
 
-PartCoef=[]; %put in known partition coefficients here
+PartCoef=[0.0038 0.0060 0.0114 0.0238 0.0972 0.2853 0.5258 0.8671 1.3733 2.066 2.8755 3.7557 4.8705]; %put in known partition coefficients here
 beta0 = [1 1 100];%initial parameter (D0, r0, E) predictions
 
 [output,resid,J,sigma]=nlinfit(known,PartCoef,@lsmf,beta0); % @lsmf reads the function in the lsmf.m file. Ensure the lsmf.m and this codes.m file are saved in the same folder for this to work.
@@ -27,11 +28,11 @@ ci = nlparci(beta0,resid,'covar',sigma,'alpha',0.33);
 clear all
 clc
 
-D0=[];%modeled value from the previous analysis
-r0=[];%modeled value from the previous analysis
-E=[];%modeled value from the previous analysis
-T=X+273;%Replace "X" with the temperature in celcius
-r=[]; %radii of elements being modeled
+D0=[54.8641];%modeled value from the previous analysis
+r0=[0.8119];%modeled value from the previous analysis
+E=[343.4178];%modeled value from the previous analysis
+T=1175+273;%Replace "X" with the temperature in celcius
+r=[1.16 1.143 1.126 1.109 1.079 1.053 1.04 1.027 1.015 1.004 0.994 0.985 0.977]; %radii of elements being modeled
 unknown(1)=D0;
 unknown(2)=r0;
 unknown(3)=E;
@@ -41,7 +42,7 @@ known(2,:)=r;
 
 PredictedD=lsmf(unknown,known);%this feeds in the modeled values into the model function and provides predicted partition coefficients 
 
-PartCoef=[]; %input known partition coefficients here
+PartCoef=[0.0038 0.0060 0.0114 0.0238 0.0972 0.2853 0.5258 0.8671 1.3733 2.066 2.8755 3.7557 4.8705]; %input known partition coefficients here
 
 
 %plot the predicted and measured data 
@@ -67,11 +68,11 @@ clc
 %Example 
 
 %'La' 'Ce' 'Nd' 'Sm' 'Gd' 'Tb' 'Dy' 'Er' 'Yb' 'Lu'
-PXsource=[]'; %starting REE composition
-DOl=[]'; %Olivine partition coefficients
-DGt=[]';%Garnet partition coefficients
-DOpx=[]'; %Orthopyroxene partition coefficients
-DCpx=[]';%Clinopyroxene partition coefficients 
+PXsource=[4.0815 11.8494 10.5714 3.9303 5.6605 1.0771 7.3218 4.8316 4.6878 0.6872]'; %starting REE composition
+DOl=[0.0001 0.0001 0.0001 0.0006 0.001 0.002 0.003 0.008 0.019 0.03]'; %Olivine partition coefficients
+DGt=[0.036 0.0091 0.0519 0.2166 0.6092 1.0083 1.5726 2.9704 4.4424 5.12]';%Garnet partition coefficients
+DOpx=[0.007 0.009 0.014 0.022 0.037 0.048 0.06 0.1 0.17 0.22]'; %Orthopyroxene partition coefficients
+DCpx=[0.02661 0.0437 0.08002 0.11696 0.14678 0.15146 0.15606 0.15815 0.16052 0.17007]';%Clinopyroxene partition coefficients 
 %Chondrite values from Anders and Grevesse
 AG=[0.2347 0.6032 0.4524 0.1471 0.1966 0.036 0.2427 0.1589 0.1625 0.0243]';
 ElementOrder=(1:10);

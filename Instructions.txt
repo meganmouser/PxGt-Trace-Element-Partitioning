@@ -1,0 +1,10 @@
+Included in this repository are the code files and bulk geochemistry data for "An experimental study of clinopyroxene- and garnet-melt trace element partitioning in Fe-rich basaltic systems" by Mouser and Dygert. 
+
+The "Codes.m" file is the MATLAB file that includes the necessary codes with line instructions on how the use the codes for the lattice strain models and melting model. This file is left blank in the areas that the user may put their own data into to run the codes according to their needs. 
+
+The "Codes_Example.m" file is the same file as Codes, but includes values to demonstrate the output of the codes. Included in the first two sections are data from garnet to show the lattice strain fit and how it plots both the measured partition coefficients and the lattice strain parabola. The third section includes an ilmenite source and partition coefficients for olivine, garnet, orthopyroxene, and clinopyroxene to show the melting model output. 
+
+The "lsfm.m" file is the function that the Codes file needs to run the lattice strain model. Make sure these two files are stored in the same folder to ensure they run correctly. 
+
+ 
+Please note that in order to run the lattice strain model MATLAB requires the Statistics and Machine Learning Toolbox to run nlinfit. 
