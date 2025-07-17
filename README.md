@@ -4,4 +4,4 @@ Included in this repository are the code files and bulk geochemical data for Mou
 
 Release V1.2 includes updated code files that fixed an issue in the melting model. In addition, an example code file to demonstrate the models and a more detailed instruction file are included. 
 
-Release V1.2.1 includes the most up-to-date xlsx file that has supporting information Table 1 and 2. Please note the original Table S3 from the previous version has been moved to the main text. Please use this version as the reference to the supporting information.
+Release V1.2.2 includes the most up-to-date xlsx file that has supporting information Table 1 and 2. Please note the original Table S3 from the previous version has been moved to the main text. Please use this version as the reference to the supporting information.
